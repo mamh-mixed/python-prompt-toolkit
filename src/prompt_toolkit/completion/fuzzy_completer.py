@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import re
-from collections.abc import Callable, Iterable, Sequence
+from collections.abc import Callable, Iterable, Mapping, Sequence
 from typing import NamedTuple
 
 from prompt_toolkit.document import Document
@@ -189,7 +189,7 @@ class FuzzyWordCompleter(Completer):
     def __init__(
         self,
         words: Sequence[str] | Callable[[], Sequence[str]],
-        meta_dict: dict[str, str] | None = None,
+        meta_dict: Mapping[str, AnyFormattedText] | None = None,
         WORD: bool = False,
     ) -> None:
         self.words = words
